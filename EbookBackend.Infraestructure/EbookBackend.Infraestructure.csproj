@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ebook.BE\EbookBackend.Domain.csproj" />
+    <ProjectReference Include="..\Ebook.Domain\EbookBackend.Domain.csproj" />
   </ItemGroup>
 
 </Project>

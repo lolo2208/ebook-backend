@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EbookBackend.DAL\EbookBackend.Application.csproj" />
-    <ProjectReference Include="..\EbookBackend.DTO\EbookBackend.Infraestructure.csproj" />
+    <ProjectReference Include="..\EbookBackend.Application\EbookBackend.Application.csproj" />
+    <ProjectReference Include="..\EbookBackend.Infraestructure\EbookBackend.Infraestructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

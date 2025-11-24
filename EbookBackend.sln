@@ -5,11 +5,11 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbookBackend.API", "EbookBackend.API\EbookBackend.API.csproj", "{2B228CEA-FC74-42A9-8718-95773333F0F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbookBackend.Domain", "Ebook.BE\EbookBackend.Domain.csproj", "{1AF77C81-364E-4FAC-9EFD-DAB1FD56B94E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbookBackend.Domain", "Ebook.Domain\EbookBackend.Domain.csproj", "{1AF77C81-364E-4FAC-9EFD-DAB1FD56B94E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbookBackend.Application", "EbookBackend.DAL\EbookBackend.Application.csproj", "{3E052EB1-C1EC-49CB-9F75-9AF2FBD13668}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbookBackend.Application", "EbookBackend.Application\EbookBackend.Application.csproj", "{3E052EB1-C1EC-49CB-9F75-9AF2FBD13668}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbookBackend.Infraestructure", "EbookBackend.DTO\EbookBackend.Infraestructure.csproj", "{70BC967B-49C8-4C7B-951D-E6E32B9FA2B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbookBackend.Infraestructure", "EbookBackend.Infraestructure\EbookBackend.Infraestructure.csproj", "{70BC967B-49C8-4C7B-951D-E6E32B9FA2B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbookBackend.Tests", "EbookBackend.Tests\EbookBackend.Tests.csproj", "{C16121E3-6B23-4446-9831-8C2C51E49A2E}"
 EndProject
