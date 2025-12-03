@@ -7,6 +7,11 @@ using EbookBackend.Infraestructure.FileStorage;
 using EbookBackend.Domain.Interfaces;
 using EbookBackend.Infraestructure.Persistence.Repositories;
 using EbookBackend.Infraestructure.Security.Authentication;
+using EbookBackend.Infraestructure.Persistence.Configurations;
+using EbookBackend.Infraestructure.Persistence.UnitOfWork;
+using EbookBackend.Domain.Security;
+using EbookBackend.Application.Interfaces;
+using EbookBackend.Infraestructure.Security;
 
 namespace EbookBackend.Infraestructure.DependencyInjection
 {
@@ -25,6 +30,7 @@ namespace EbookBackend.Infraestructure.DependencyInjection
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             //Repositories
+            services.AddScoped<IAuditLogRepository, AuditLogRepository>();
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookReviewRepository, BookReviewRepository>();
@@ -34,12 +40,17 @@ namespace EbookBackend.Infraestructure.DependencyInjection
             services.AddScoped<ISubGenreRepository, SubGenreRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserRoleRepository, UserRoleRepository>();
+            services.AddScoped<IUserTokenRepository, UserTokenRepository>();
 
+            //UnitOfWork
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             //Security
-            services.AddSingleton<JwtTokenGenerator>();
-            services.AddSingleton<PasswordHasher>();
+            services.AddScoped<ITokenGenerator, JwtTokenGenerator>();
             services.AddSingleton<ConnectionStringProtector>();
+            services.AddScoped<IPasswordHasher, PasswordHasher>();
+            services.AddScoped<IUserContextService, UserContext>();
+            services.AddHttpContextAccessor();
 
             //Blob Storage
             services.AddSingleton(provider =>

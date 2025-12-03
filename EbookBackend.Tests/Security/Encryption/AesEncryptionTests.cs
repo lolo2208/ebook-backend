@@ -10,7 +10,7 @@ namespace EbookBackend.Tests.Security.Encryption
 {
     public class AesEncryptionTests
     {
-        private readonly string _key = "10897250175017324";
+        private readonly string _key = "1261882437151234ABCD901234567890";
         private readonly ITestOutputHelper _output;
 
         public AesEncryptionTests(ITestOutputHelper output)
@@ -22,7 +22,7 @@ namespace EbookBackend.Tests.Security.Encryption
         public void Encrypt_And_Decrypt_Should_Return_Original_Text()
         {
             // Arrange
-            var original = "Hola mundo";
+            var original = "Server=tcp:sqlserver-free-lgomez.database.windows.net,1433;Initial Catalog=ebookstore-free;Persist Security Info=False;User ID=lgomez;Password=Kcrrbgh9!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=60;";
 
 
             // Act

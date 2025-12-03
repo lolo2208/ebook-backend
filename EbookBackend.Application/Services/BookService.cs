@@ -1,4 +1,5 @@
-﻿using EbookBackend.Application.Interfaces;
+﻿using AutoMapper;
+using EbookBackend.Application.Interfaces;
 using EbookBackend.Domain.Entities;
 using EbookBackend.Domain.Interfaces;
 using System;
@@ -11,25 +12,25 @@ namespace EbookBackend.Application.Services
 {
     public class BookService : BaseService<Book>, IBookService
     {
-        private readonly IBookRepository _bookRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public BookService(IBookRepository bookRepository) : base(bookRepository) {
-            _bookRepository = bookRepository;
+        public BookService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork.Books, unitOfWork) {
+            _unitOfWork = unitOfWork;
         }
         
         public async Task<IEnumerable<Book>> GetBooksByGenreAsync(int genreId)
         {
-            return await _bookRepository.GetBooksByGenreAsync(genreId);
+            return await _unitOfWork.Books.GetBooksByGenreAsync(genreId);
         }
 
         public async Task<IEnumerable<Book>> GetBooksWithAuthorAsync()
         {
-            return await _bookRepository.GetBooksWithAuthorAsync();
+            return await _unitOfWork.Books.GetBooksWithAuthorAsync();
         }
 
         public async Task<Book?> GetByISBNAsync(string isbn)
         {
-            return await _bookRepository.GetByISBNAsync(isbn);
+            return await _unitOfWork.Books.GetByISBNAsync(isbn);
         }
     }
 }

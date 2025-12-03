@@ -25,7 +25,10 @@ namespace EbookBackend.Infraestructure.Persistence.Repositories
 
         public Task<User?> GetByEmailWithRoleAsync(string email)
         {
-            return _context.Users.Include(u => u.UserRoles).FirstOrDefaultAsync(u => u.Email == email);
+            return _context.Users
+                .Include(u => u.UserRoles!)
+                    .ThenInclude(u => u.RoleObj)
+                .FirstOrDefaultAsync(u => u.Email == email);
         }
     }
 }

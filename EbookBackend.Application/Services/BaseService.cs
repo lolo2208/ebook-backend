@@ -1,4 +1,4 @@
-﻿using EbookBackend.Application.Interfaces;
+﻿ using EbookBackend.Application.Interfaces;
 using EbookBackend.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,15 +11,18 @@ namespace EbookBackend.Application.Services
     public class BaseService<T> : IBaseService<T> where T : class
     {
         private readonly IRepository<T> _repository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public BaseService(IRepository<T> repository)
+        public BaseService(IRepository<T> repository, IUnitOfWork unitOfWork)
         {
             _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<T> AddAsync(T entity)
         {
             await _repository.AddAsync(entity);
+            await _unitOfWork.SaveChangesAsync();
             return entity;
         }
 
@@ -28,7 +31,8 @@ namespace EbookBackend.Application.Services
             var model = await _repository.GetByIdAsync(id);
             if (model == null) return false;
 
-            await _repository.DeleteAsync(model);
+            _repository.Delete(model);
+            await _unitOfWork.SaveChangesAsync();
             return true;
         }
 
@@ -44,7 +48,8 @@ namespace EbookBackend.Application.Services
 
         public async Task<T> UpdateAsync(T entity)
         {
-            await _repository.UpdateAsync(entity);
+            _repository.Update(entity);
+            await _unitOfWork.SaveChangesAsync();
             return entity;
         }
     }

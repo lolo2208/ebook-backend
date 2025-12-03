@@ -1,4 +1,5 @@
-﻿using EbookBackend.Application.Interfaces;
+﻿using AutoMapper;
+using EbookBackend.Application.Interfaces;
 using EbookBackend.Domain.Entities;
 using EbookBackend.Domain.Interfaces;
 using System;
@@ -11,6 +12,6 @@ namespace EbookBackend.Application.Services
 {
     public class GenreService : BaseService<Genre>, IGenreService
     {
-        public GenreService(IGenreRepository genreRepository) : base(genreRepository) { }
+        public GenreService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork.Genres, unitOfWork) { }
     }
 }

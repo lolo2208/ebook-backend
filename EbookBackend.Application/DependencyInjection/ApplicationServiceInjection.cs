@@ -2,6 +2,7 @@
 using EbookBackend.Application.Services;
 using EbookBackend.Domain.Interfaces;
 using EbookBackend.Application.Interfaces;
+using EbookBackend.Application.Mappings;
 
 namespace EbookBackend.Application.DependencyInjection
 {
@@ -23,6 +24,9 @@ namespace EbookBackend.Application.DependencyInjection
             services.AddScoped<ISubGenreService, SubGenreService>();
             services.AddScoped<IUserRoleService, UserRoleService>();
             services.AddScoped<IUserService, UserService>();
+
+            //AutoMapper
+            services.AddAutoMapper(cfg => { }, typeof(MappingProfile));
 
             return services;
         }

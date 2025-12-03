@@ -1,4 +1,5 @@
-﻿using EbookBackend.Application.Interfaces;
+﻿using AutoMapper;
+using EbookBackend.Application.Interfaces;
 using EbookBackend.Domain.Entities;
 using EbookBackend.Domain.Interfaces;
 using System;
@@ -11,6 +12,6 @@ namespace EbookBackend.Application.Services
 {
     public class PublisherService : BaseService<Publisher>, IPublisherService
     {
-        public PublisherService(IPublisherRepository publisherRepository) : base(publisherRepository) { }
+        public PublisherService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork.Publishers, unitOfWork) { }
     }
 }

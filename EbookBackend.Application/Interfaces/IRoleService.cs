@@ -1,4 +1,5 @@
-﻿using EbookBackend.Domain.Entities;
+﻿using EbookBackend.Application.Dto;
+using EbookBackend.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,7 @@ namespace EbookBackend.Application.Interfaces
 {
     public interface IRoleService : IBaseService<Role>
     {
+        Task<RoleDto> SaveRole(RoleDto roleDto);
+        Task<RoleDto> DeleteRole(int idRole); 
     }
 }

@@ -1,4 +1,5 @@
-﻿using EbookBackend.Application.Interfaces;
+﻿using AutoMapper;
+using EbookBackend.Application.Interfaces;
 using EbookBackend.Domain.Entities;
 using EbookBackend.Domain.Interfaces;
 using System;
@@ -11,6 +12,6 @@ namespace EbookBackend.Application.Services
 {
     public class UserRoleService : BaseService<UserRole>, IUserRoleService
     {
-        public UserRoleService(IUserRoleRepository userRoleRepository) : base(userRoleRepository) { }
+        public UserRoleService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork.UserRoles, unitOfWork) { }
     }
 }
