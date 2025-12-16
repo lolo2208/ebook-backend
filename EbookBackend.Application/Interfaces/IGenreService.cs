@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Interfaces
 {
-    public interface IGenreService : IBaseService<Genre>
+    public interface IGenreService
     {
     }
 }

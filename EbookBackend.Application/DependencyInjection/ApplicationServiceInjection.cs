@@ -11,7 +11,7 @@ namespace EbookBackend.Application.DependencyInjection
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             //Servicio genérico
-            services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+            //services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 
             //Servicios
             services.AddScoped<IAuthorService, AuthorService>();

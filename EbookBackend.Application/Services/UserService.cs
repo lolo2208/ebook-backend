@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Services
 {
-    public class UserService : BaseService<User>, IUserService
+    public class UserService : IUserService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IPasswordHasher _passwordHasher;
 
-        public UserService(IUnitOfWork unitOfWork, IMapper mapper, IPasswordHasher passwordHasher) : base(unitOfWork.Users, unitOfWork) 
+        public UserService(IUnitOfWork unitOfWork, IMapper mapper, IPasswordHasher passwordHasher) 
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;

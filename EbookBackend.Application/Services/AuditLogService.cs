@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Services
 {
-    public class AuditLogService : BaseService<AuditLog>, IAuditLogService
+    public class AuditLogService : IAuditLogService
     {
-        public AuditLogService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork.AuditLogs, unitOfWork)
+        public AuditLogService(IUnitOfWork unitOfWork, IMapper mapper)
         {
 
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Interfaces
 {
-    public interface IAuditLogService : IBaseService<AuditLog>
+    public interface IAuditLogService
     {
 
     }

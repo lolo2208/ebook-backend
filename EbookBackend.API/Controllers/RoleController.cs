@@ -25,8 +25,9 @@ namespace EbookBackend.API.Controllers
         {
             try
             {
-                var roles = await _roleService.GetAllAsync();
-                return Ok(new ApiResponse<RoleDto>
+                var roles = await _roleService.GetAllRolesAsync();
+
+                return Ok(new ApiResponse<IEnumerable<RoleDto>>
                 {
                     Success = true,
                     Data = roles,

@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Services
 {
-    public class BookService : BaseService<Book>, IBookService
+    public class BookService : IBookService
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public BookService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork.Books, unitOfWork) {
+        public BookService(IUnitOfWork unitOfWork, IMapper mapper) 
+        {
             _unitOfWork = unitOfWork;
         }
         

@@ -12,29 +12,16 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Services
 {
-    public class RoleService : BaseService<Role>, IRoleService 
+    public class RoleService : IRoleService 
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IUserContextService _userContextService;
 
-        public RoleService(IUnitOfWork unitOfWork, IMapper mapper, IUserContextService userContextService) : base(unitOfWork.Roles, unitOfWork) {
+        public RoleService(IUnitOfWork unitOfWork, IMapper mapper, IUserContextService userContextService) {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _userContextService = userContextService;
-        }
-
-        public new async Task<List<RoleDto>> GetAllAsync()
-        {
-            try
-            {
-                var roles = await _unitOfWork.Roles.GetAllAsync();
-                var rolesDto = roles.Select(_mapper.Map<RoleDto>).ToList();
-                return rolesDto;
-            }catch(Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
         }
 
         public async Task<RoleDto> DeleteRole(int idRole)
@@ -72,6 +59,20 @@ namespace EbookBackend.Application.Services
             }
         }
 
+        public async Task<IEnumerable<RoleDto>> GetAllRolesAsync()
+        {
+            try
+            {
+                var roles = await _unitOfWork.Roles.GetAllAsync();
+                var rolesDto = roles.Select(_mapper.Map<RoleDto>).ToList();
+                return rolesDto;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public async Task<RoleDto> SaveRole(RoleDto roleDto)
         {
             // Init transaction
@@ -84,7 +85,7 @@ namespace EbookBackend.Application.Services
                 if (roleDto.IdRole.HasValue && roleDto.IdRole.Value > 0)
                 {
                     //Update role
-                    var currentRole = await GetByIdAsync(roleDto.IdRole.Value);
+                    var currentRole = await _unitOfWork.Roles.GetByIdAsync(roleDto.IdRole.Value);
                     if (currentRole == null)
                         throw new Exception("El rol no existe");
 

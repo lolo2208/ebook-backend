@@ -10,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Services
 {
-    public class GenreService : BaseService<Genre>, IGenreService
+    public class GenreService : IGenreService
     {
-        public GenreService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork.Genres, unitOfWork) { }
+        public GenreService(IUnitOfWork unitOfWork, IMapper mapper) 
+        { 
+        }
     }
 }

@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Interfaces
 {
-    public interface IRoleService : IBaseService<Role>
+    public interface IRoleService
     {
         Task<RoleDto> SaveRole(RoleDto roleDto);
-        Task<RoleDto> DeleteRole(int idRole); 
+        Task<RoleDto> DeleteRole(int idRole);
+        Task<IEnumerable<RoleDto>> GetAllRolesAsync();
     }
 }

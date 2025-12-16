@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Interfaces
 {
-    public interface IBookService : IBaseService<Book>
+    public interface IBookService
     {
         Task<Book?> GetByISBNAsync(string isbn);
         Task<IEnumerable<Book>> GetBooksWithAuthorAsync();

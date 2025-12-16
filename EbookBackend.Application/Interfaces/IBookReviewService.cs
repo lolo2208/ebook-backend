@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Interfaces
 {
-    public interface IBookReviewService : IBaseService<BookReview>
+    public interface IBookReviewService
     {
     }
 }

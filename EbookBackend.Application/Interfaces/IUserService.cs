@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Interfaces
 {
-    public interface IUserService : IBaseService<User>
+    public interface IUserService
     {
         Task<UserDto> TransactionRegisterUser(UserRegisterRequestDto user);
     }

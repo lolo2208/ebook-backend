@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Services
 {
-    public class UserRoleService : BaseService<UserRole>, IUserRoleService
+    public class UserRoleService : IUserRoleService
     {
-        public UserRoleService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork.UserRoles, unitOfWork) { }
+        public UserRoleService(IUnitOfWork unitOfWork, IMapper mapper) { }
     }
 }

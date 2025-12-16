@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Services
 {
-    public class PublisherService : BaseService<Publisher>, IPublisherService
+    public class PublisherService : IPublisherService
     {
-        public PublisherService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork.Publishers, unitOfWork) { }
+        public PublisherService(IUnitOfWork unitOfWork, IMapper mapper) { }
     }
 }

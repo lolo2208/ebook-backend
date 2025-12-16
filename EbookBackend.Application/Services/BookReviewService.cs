@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace EbookBackend.Application.Services
 {
-    public class BookReviewService : BaseService<BookReview>, IBookReviewService
+    public class BookReviewService : IBookReviewService
     {
-        public BookReviewService(IUnitOfWork unitOfWork, IMapper mapper) :  base(unitOfWork.BookReviews, unitOfWork) { }
+        public BookReviewService(IUnitOfWork unitOfWork, IMapper mapper) { }
     }
 }
